@@ -5,14 +5,20 @@ class PostsController < ApplicationController
 
    def index
      @posts = Post.all
+     @redis = Redis.new
+     @most_popular_ids = @redis.zrevrangebyscore "ranking", "+inf", 0, limit: [0, 4]
    end
 
    def show
      @posts = Post.all
+     @redis = Redis.new
+     @most_popular_ids = @redis.zrevrangebyscore "ranking", "+inf", 0, limit: [0, 4]
    end
 
    def detail
      @post = Post.find(params[:id])
+     @redis = Redis.new
+     @redis.zincrby "ranking", 1, "#{@post.id}"
    end
 
    def new

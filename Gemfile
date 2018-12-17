@@ -9,6 +9,7 @@ gem 'rails', '~> 5.2.2'
 # Devise
 gem 'devise'
 gem 'omniauth-twitter'
+gem 'redis'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
