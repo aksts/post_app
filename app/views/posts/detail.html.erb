@@ -1,6 +1,6 @@
 <div id="title">
   <div>
-    <p><%= @post.created_at %> </p>
+    <p><%= @post.created_at.strftime('%Y/%m/%d')  %> 書いた人<%= @post.user.email %></p>
     <h1><%= @post.title %></h1>
   </div>
 </div>
